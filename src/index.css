@@ -1,13 +1,294 @@
-body {
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Monoton&family=Quintessential&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --primary-color: #FBFBFB;
+  --secondary-color: #333;
+  --text-color:#FFDDAE;
+  --bg1:#C6E7FF;
+  --bg2:#D4F6FF;
+  --ffMonoton:'Monoton'
+}
+html{
+  scroll-behavior: smooth;
+  /* font-size: 62.5%; */
+  
+}
+
+body {
+ font-family: "Cinzel Decorative", cursive;
+  background: var(--bg1);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  min-height: 100vh;
+  width: 100%;
+
+
+}
+
+
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 0;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+ 
+ 
+}
+h1{
+font-size: 4.2rem;
+color: var(--secondary-color);
+
+font-family: var(--ffMonoton); 
+font-weight: 400;
+letter-spacing: 3px;
+white-space: 5px;
+
+}
+.container{
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  
+}
+.wrapper{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.wrapper span{
+  display: block;
+ width: 100%;
+ height: 5px;
+ background: var(--primary-color);
+}
+.wrapper span:nth-child(2){
+width: 50%;
+
+} 
+.wrapper .left{
+  margin-left: auto;
+}
+.icon span{
+  color: var(--primary-color);
+  font-size: 4.5rem;
+}
+
+.input{
+  padding: 1.4rem 3.2rem;
+  background: var(--bg2);
+  border: none;
+  outline: none;
+  color:var(--secondary-color);
+  font-size: 2rem;
+  text-align: center;
+  /* width: 100%; */
+  font-family: inherit;
+  border-radius: 10px;
+  box-shadow:  0 0 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.input::placeholder{
+  color: var(--bg1);
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.input:focus, .input:hover{
+  background: var(--primary-color);
+  box-shadow: inset 5px 5px  10px rgba(0,0,0,0.1),
+              inset -5px -5px 10px rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+  
+  
+}
+.result{
+  width: 100%;
+  /* border: 1px solid red; */
+  
+}
+.weather{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 2rem;
+padding: 4rem 4rem;
+background: var(--bg2);
+border: 2px solid var(--primary-color);
+outline: 2px solid var(--primary-color);
+outline-offset: 1.2rem;
+width: 100%;
+
+}
+  h2{
+ color:var(--secondary-color);
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  }
+h2 span{
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+
+}
+.weather-list {
+display: flex;
+flex-direction: row;
+align-items: center;
+overflow-x: scroll;
+list-style: none;
+gap: 2rem;
+padding: 1rem 0;
+width: 100%;
+padding: 1rem ;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: thin;
+scrollbar-color: var(--primary-color) var(--bg2);
+scroll-behavior: smooth;
+ 
+}
+
+.weather-item{
+display: flex;
+flex: 0 0 auto;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+width: 200px;
+padding: 1.5rem 2rem;
+color: var(--secondary-color);
+background: rgba(212, 246, 255, 0.34);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(212, 246, 255, 0.3);
+}
+
+.weather-item span {
+  font-size: 3.2rem;
+}
+.weather-item .sun{
+  color: #f6a738;
+  
+}
+
+.loader {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+   
+  .app{
+    padding: 4rem 0;
+    max-width: 100% ;
+   
+  }
+
+
+  
+}
+
+@media screen and (max-width: 768px) {
+
+  .app{
+    padding: 4rem 20px;
+    margin: auto;
+   
+  }
+
+  h1{
+    font-size: 3.2rem;
+  }
+
+  
+ .weather{
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+  .weather-list{
+  
+  padding: 1rem ;
+  gap: 1rem;
+ 
+  }
+  
+  
+.weather-item{
+    width: 180px;
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+  
+  
+}
+@media screen and (max-width: 600px) {
+  .app{
+    padding: 2rem 15px;
+   gap: 2rem;
+  
+  }
+  .container{
+  
+    gap: 1rem;
+  }
+  h1{
+    font-size: 2.4rem;
+  }
+  
+  .input{
+    padding: 1.4rem 1rem;
+    font-size: 1.6rem;
+  }
+  .input::placeholder{
+    font-size: 1.4rem;
+  }
+  .weather h2 {
+    font-size: 1.8rem;
+  }
+  h2 span{
+    font-size: 1.4rem;
+  }
+  
+}
+
+@media screen and (max-width: 480px) {
+  
+  h1{
+    font-size: 1.7rem;
+  }
+  .container{
+    
+    gap: 0.5rem;
+  }
+  .wrapper{
+    gap: 0.7rem;
+  }
+  .icon span{
+    font-size: 3rem;
+  }
+  
+  .input{
+    padding: 1.2rem 5px;
+    font-size: 1.4rem;
+  }
+  
 }
