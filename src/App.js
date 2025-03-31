@@ -126,16 +126,14 @@ airwave
         </div>
         </div>
         </div>
-      <div>
+      {/* <div> */}
         <Input location={location} onChange={setLocation}  />
-      </div>
-      <div className="result">
-      {/* <button onClick={featchWeather}>Get Weather</button> */}
+      {/* </div> */}
       {loading && <p className="loader">Loading...</p>}
-      {error && <p>{error.message}</p>}
+      {error && <p className="error">{error.message}</p>}
       {weatherData.weathercode && 
         <Weather location={locationData} weatherData={weatherData} />}
-      </div>
+    
     </div>
   );
 }
